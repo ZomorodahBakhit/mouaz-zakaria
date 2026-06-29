@@ -1,0 +1,284 @@
+2026-06-29 14:09:18.905 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-29 14:09:18.938 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-06-29 14:09:18.960 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2026-06-29 14:09:19.015 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2026-06-29 14:09:19.021 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-29 14:09:19.022 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-29 14:09:19.027 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-29 14:09:19.035 +03:00 [INF] Applying migration '20260629090000_AddCoursesAndStudentEmailIndex'.
+2026-06-29 14:09:19.051 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Courses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Weight] int NOT NULL,
+    CONSTRAINT [PK_Courses] PRIMARY KEY ([Id])
+);
+2026-06-29 14:09:19.055 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Students_Email] ON [Students] ([Email]);
+2026-06-29 14:09:19.056 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260629090000_AddCoursesAndStudentEmailIndex', N'10.0.9');
+2026-06-29 14:09:19.059 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2026-06-29 14:09:51.988 +03:00 [INF] Now listening on: https://localhost:7041
+2026-06-29 14:09:52.019 +03:00 [INF] Now listening on: http://localhost:5288
+2026-06-29 14:09:52.245 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 14:09:52.245 +03:00 [INF] Hosting environment: Development
+2026-06-29 14:09:52.245 +03:00 [INF] Content root path: C:\Users\ASUS\Desktop\Assignments\Assignment 2\University.API
+2026-06-29 14:09:53.528 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger - null null
+2026-06-29 14:09:53.753 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger - 301 null null 234.9924ms
+2026-06-29 14:09:53.755 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2026-06-29 14:09:53.830 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 74.4846ms
+2026-06-29 14:09:53.842 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/swagger-ui.css - null null
+2026-06-29 14:09:53.843 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.css - null null
+2026-06-29 14:09:53.843 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/swagger-ui-bundle.js - null null
+2026-06-29 14:09:53.871 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.css - 200 152 text/css 28.2408ms
+2026-06-29 14:09:53.930 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-29 14:09:53.942 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/swagger-ui.css - 200 26499 text/css 99.1754ms
+2026-06-29 14:09:53.947 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/swagger-ui-bundle.js - 200 421507 text/javascript 104.0142ms
+2026-06-29 14:09:53.947 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/swagger-ui-standalone-preset.js - 200 77731 text/javascript 17.4647ms
+2026-06-29 14:09:53.966 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.js - null null
+2026-06-29 14:09:53.967 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.js - 200 null application/javascript;charset=utf-8 1.3792ms
+2026-06-29 14:09:53.968 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-29 14:09:53.970 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2026-06-29 14:09:53.973 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 4.6387ms
+2026-06-29 14:09:54.324 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 353.4876ms
+2026-06-29 14:09:54.418 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/favicon-32x32.png - null null
+2026-06-29 14:09:54.418 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2026-06-29 14:09:54.420 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/favicon-32x32.png - 200 628 image/png 2.7437ms
+2026-06-29 14:09:54.442 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.2115ms
+2026-06-29 14:12:13.343 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger - null null
+2026-06-29 14:12:13.650 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.html - null null
+2026-06-29 14:12:13.654 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger - 301 null null 322.1522ms
+2026-06-29 14:12:13.684 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 14:12:13.684 +03:00 [INF] Hosting environment: Development
+2026-06-29 14:12:13.684 +03:00 [INF] Content root path: C:\Users\ASUS\Desktop\Assignments\Assignment 2\University.API
+2026-06-29 14:12:13.792 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.html - 200 null text/html;charset=utf-8 142.5959ms
+2026-06-29 14:12:13.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.css - null null
+2026-06-29 14:12:13.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - null null
+2026-06-29 14:12:13.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - null null
+2026-06-29 14:12:13.857 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.css - 200 152 text/css 54.7722ms
+2026-06-29 14:12:13.863 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - 200 26499 text/css 32.5677ms
+2026-06-29 14:12:13.913 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-29 14:12:13.913 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.js - null null
+2026-06-29 14:12:13.942 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - 200 421507 text/javascript 111.2391ms
+2026-06-29 14:12:13.953 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.js - 200 null application/javascript;charset=utf-8 40.0089ms
+2026-06-29 14:12:13.954 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - 200 77731 text/javascript 41.7321ms
+2026-06-29 14:12:14.001 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-29 14:12:14.001 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - null null
+2026-06-29 14:12:14.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 2.6821ms
+2026-06-29 14:12:14.048 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.6007ms
+2026-06-29 14:12:14.223 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - null null
+2026-06-29 14:12:14.230 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/favicon-32x32.png - null null
+2026-06-29 14:12:14.233 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/favicon-32x32.png - 200 628 image/png 2.99ms
+2026-06-29 14:12:14.249 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1994ms
+2026-06-29 14:12:22.666 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Students - application/json 53
+2026-06-29 14:12:22.685 +03:00 [INF] Executing endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:12:22.712 +03:00 [INF] Route matched with {action = "Create", controller = "Students"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateStudentForm) on controller University.API.Controllers.StudentsController (University.API).
+2026-06-29 14:12:22.943 +03:00 [INF] Incoming request: POST api/students
+2026-06-29 14:12:24.226 +03:00 [INF] Executed DbCommand (52ms) [Parameters=[@email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Email], [s].[Name]
+FROM [Students] AS [s]
+WHERE [s].[Email] = @email
+2026-06-29 14:12:24.396 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 150), @p1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Email], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2026-06-29 14:12:24.423 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:12:24.435 +03:00 [INF] Executed action University.API.Controllers.StudentsController.Create (University.API) in 1719.2997ms
+2026-06-29 14:12:24.436 +03:00 [INF] Executed endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:12:24.644 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Students  {
+  "name": "string",
+  "email": "user@example.com"
+} Responded with [200] in 1967ms
+2026-06-29 14:12:24.653 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Students - 200 239 application/json 1986.5917ms
+2026-06-29 14:12:39.061 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Students - application/json 53
+2026-06-29 14:12:39.063 +03:00 [INF] Executing endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:12:39.064 +03:00 [INF] Route matched with {action = "Create", controller = "Students"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateStudentForm) on controller University.API.Controllers.StudentsController (University.API).
+2026-06-29 14:12:39.066 +03:00 [INF] Incoming request: POST api/students
+2026-06-29 14:12:39.086 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Email], [s].[Name]
+FROM [Students] AS [s]
+WHERE [s].[Email] = @email
+2026-06-29 14:12:39.091 +03:00 [WRN] Duplicate student email submitted: user@example.com
+2026-06-29 14:27:21.721 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.html - null null
+2026-06-29 14:27:22.004 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 14:27:22.004 +03:00 [INF] Hosting environment: Development
+2026-06-29 14:27:22.004 +03:00 [INF] Content root path: C:\Users\ASUS\Desktop\Assignments\Assignment 2\University.API
+2026-06-29 14:27:22.038 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.html - 304 null null 329.6967ms
+2026-06-29 14:27:22.087 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - null null
+2026-06-29 14:27:22.087 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.css - null null
+2026-06-29 14:27:22.126 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.js - null null
+2026-06-29 14:27:22.127 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-29 14:27:22.130 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - null null
+2026-06-29 14:27:22.134 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.js - 304 null null 46.1347ms
+2026-06-29 14:27:22.172 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - null null
+2026-06-29 14:27:22.172 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-29 14:27:22.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - 304 null null 110.236ms
+2026-06-29 14:27:22.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - 304 null null 61.8193ms
+2026-06-29 14:27:22.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.css - 304 null null 110.4089ms
+2026-06-29 14:27:22.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - 304 null null 20.0825ms
+2026-06-29 14:27:22.199 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 71.5397ms
+2026-06-29 14:27:22.216 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.9929ms
+2026-06-29 14:27:22.352 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - null null
+2026-06-29 14:27:22.376 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.1568ms
+2026-06-29 14:27:28.646 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Students - application/json 53
+2026-06-29 14:27:28.662 +03:00 [INF] Executing endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:27:28.683 +03:00 [INF] Route matched with {action = "Create", controller = "Students"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateStudentForm) on controller University.API.Controllers.StudentsController (University.API).
+2026-06-29 14:27:28.888 +03:00 [INF] Incoming request: POST api/students
+2026-06-29 14:27:30.043 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[@email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Email], [s].[Name]
+FROM [Students] AS [s]
+WHERE [s].[Email] = @email
+2026-06-29 14:27:30.102 +03:00 [WRN] Duplicate student email submitted: user@example.com
+2026-06-29 14:27:41.679 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:27:41.697 +03:00 [INF] Executed action University.API.Controllers.StudentsController.Create (University.API) in 13010.2828ms
+2026-06-29 14:27:41.697 +03:00 [INF] Executed endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:27:41.857 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Students  {
+  "name": "string",
+  "email": "user@example.com"
+} Responded with [400] in 13200ms
+2026-06-29 14:27:41.864 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Students - 400 316 application/json 13218.4883ms
+2026-06-29 14:28:13.877 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.html - null null
+2026-06-29 14:28:14.017 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 14:28:14.018 +03:00 [INF] Hosting environment: Development
+2026-06-29 14:28:14.018 +03:00 [INF] Content root path: C:\Users\ASUS\Desktop\Assignments\Assignment 2\University.API
+2026-06-29 14:28:14.020 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.html - 304 null null 146.3067ms
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - null null
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - null null
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.css - null null
+2026-06-29 14:28:14.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.js - null null
+2026-06-29 14:28:14.033 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.js - 304 null null 1.2518ms
+2026-06-29 14:28:14.045 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - null null
+2026-06-29 14:28:14.045 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 14.0253ms
+2026-06-29 14:28:14.046 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - 304 null null 14.9956ms
+2026-06-29 14:28:14.046 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.css - 304 null null 14.9955ms
+2026-06-29 14:28:14.046 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - 304 null null 14.542ms
+2026-06-29 14:28:14.046 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - 304 null null 15.1891ms
+2026-06-29 14:28:14.074 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.7011ms
+2026-06-29 14:28:14.156 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - null null
+2026-06-29 14:28:14.169 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.1712ms
+2026-06-29 14:28:20.412 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Students - application/json 53
+2026-06-29 14:28:20.427 +03:00 [INF] Executing endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:28:20.442 +03:00 [INF] Route matched with {action = "Create", controller = "Students"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateStudentForm) on controller University.API.Controllers.StudentsController (University.API).
+2026-06-29 14:28:20.547 +03:00 [INF] Incoming request: POST api/students
+2026-06-29 14:28:21.372 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[@email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Email], [s].[Name]
+FROM [Students] AS [s]
+WHERE [s].[Email] = @email
+2026-06-29 14:28:21.422 +03:00 [WRN] Duplicate student email submitted: user@example.com
+2026-06-29 14:28:21.427 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:28:21.439 +03:00 [INF] Executed action University.API.Controllers.StudentsController.Create (University.API) in 994.4346ms
+2026-06-29 14:28:21.439 +03:00 [INF] Executed endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:28:21.592 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Students  {
+  "name": "string",
+  "email": "user@example.com"
+} Responded with [400] in 1169ms
+2026-06-29 14:28:21.599 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Students - 400 316 application/json 1186.2421ms
+2026-06-29 14:28:40.224 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Students - application/json 53
+2026-06-29 14:28:40.226 +03:00 [INF] Executing endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:28:40.226 +03:00 [INF] Route matched with {action = "Create", controller = "Students"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateStudentForm) on controller University.API.Controllers.StudentsController (University.API).
+2026-06-29 14:28:40.229 +03:00 [INF] Incoming request: POST api/students
+2026-06-29 14:28:40.252 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Email], [s].[Name]
+FROM [Students] AS [s]
+WHERE [s].[Email] = @email
+2026-06-29 14:28:40.253 +03:00 [WRN] Duplicate student email submitted: user@example.com
+2026-06-29 14:28:40.253 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:28:40.253 +03:00 [INF] Executed action University.API.Controllers.StudentsController.Create (University.API) in 27.1816ms
+2026-06-29 14:28:40.253 +03:00 [INF] Executed endpoint 'University.API.Controllers.StudentsController.Create (University.API)'
+2026-06-29 14:28:40.254 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Students  {
+  "name": "string",
+  "email": "user@example.com"
+} Responded with [400] in 28ms
+2026-06-29 14:28:40.254 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Students - 400 316 application/json 30.2152ms
+2026-06-29 14:30:36.962 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.html - null null
+2026-06-29 14:30:37.101 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 14:30:37.101 +03:00 [INF] Hosting environment: Development
+2026-06-29 14:30:37.101 +03:00 [INF] Content root path: C:\Users\ASUS\Desktop\Assignments\Assignment 2\University.API
+2026-06-29 14:30:37.144 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.html - 200 null text/html;charset=utf-8 185.6274ms
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.css - null null
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - null null
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - null null
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-29 14:30:37.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/index.js - null null
+2026-06-29 14:30:37.151 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.js - 304 null null 6.2448ms
+2026-06-29 14:30:37.153 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_framework/aspnetcore-browser-refresh.js - 200 16513 application/javascript; charset=utf-8 7.7857ms
+2026-06-29 14:30:37.159 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/_vs/browserLink - null null
+2026-06-29 14:30:37.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/index.css - 304 null null 22.8203ms
+2026-06-29 14:30:37.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-standalone-preset.js - 304 null null 21.8669ms
+2026-06-29 14:30:37.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui.css - 304 null null 22.8892ms
+2026-06-29 14:30:37.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/swagger-ui-bundle.js - 304 null null 22.5082ms
+2026-06-29 14:30:37.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.0012ms
+2026-06-29 14:30:37.278 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - null null
+2026-06-29 14:30:37.291 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44384/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.1773ms
+2026-06-29 14:30:45.206 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Courses - application/json 39
+2026-06-29 14:30:45.220 +03:00 [INF] Executing endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:30:45.240 +03:00 [INF] Route matched with {action = "Create", controller = "Courses"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateCourseForm) on controller University.API.Controllers.CoursesController (University.API).
+2026-06-29 14:30:45.413 +03:00 [INF] Incoming request: POST api/courses
+2026-06-29 14:30:46.293 +03:00 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Courses] ([Name], [Weight])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2026-06-29 14:30:46.327 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:30:46.337 +03:00 [INF] Executed action University.API.Controllers.CoursesController.Create (University.API) in 1093.7767ms
+2026-06-29 14:30:46.337 +03:00 [INF] Executed endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:30:46.509 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Courses  {
+  "name": "string",
+  "weight": 100
+} Responded with [200] in 1292ms
+2026-06-29 14:30:46.514 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Courses - 200 238 application/json 1308.5632ms
+2026-06-29 14:30:53.406 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Courses - application/json 22
+2026-06-29 14:30:53.408 +03:00 [INF] Executing endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:30:53.409 +03:00 [INF] Route matched with {action = "Create", controller = "Courses"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateCourseForm) on controller University.API.Controllers.CoursesController (University.API).
+2026-06-29 14:30:53.411 +03:00 [INF] Incoming request: POST api/courses
+2026-06-29 14:30:53.482 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Courses] ([Name], [Weight])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2026-06-29 14:30:53.483 +03:00 [INF] Executing ObjectResult, writing value of type 'AutoWrapper.Wrappers.ApiResponse'.
+2026-06-29 14:30:53.483 +03:00 [INF] Executed action University.API.Controllers.CoursesController.Create (University.API) in 74.3404ms
+2026-06-29 14:30:53.483 +03:00 [INF] Executed endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:30:53.484 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Courses  {
+  "name": "string"
+} Responded with [200] in 76ms
+2026-06-29 14:30:53.485 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Courses - 200 238 application/json 78.5649ms
+2026-06-29 14:31:07.447 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44384/api/Courses - application/json 39
+2026-06-29 14:31:07.448 +03:00 [INF] Executing endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:31:07.448 +03:00 [INF] Route matched with {action = "Create", controller = "Courses"}. Executing controller action with signature AutoWrapper.Wrappers.ApiResponse Create(University.Core.Forms.CreateCourseForm) on controller University.API.Controllers.CoursesController (University.API).
+2026-06-29 14:31:07.451 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-06-29 14:31:07.467 +03:00 [INF] Executed action University.API.Controllers.CoursesController.Create (University.API) in 18.6282ms
+2026-06-29 14:31:07.467 +03:00 [INF] Executed endpoint 'University.API.Controllers.CoursesController.Create (University.API)'
+2026-06-29 14:31:07.479 +03:00 [INF] Source:[::1] Request: POST https localhost:44384/api/Courses  {
+  "name": "string",
+  "weight": 200
+} Responded with [400] in 30ms
+2026-06-29 14:31:07.479 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44384/api/Courses - 400 433 application/json 31.5147ms
