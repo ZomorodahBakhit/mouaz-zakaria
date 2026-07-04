@@ -1,0 +1,37 @@
+.navbar {
+  align-items: center;
+  background: #222222;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 15px 25px;
+}
+
+.navbar__brand {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar__link {
+  color: #dddddd;
+  text-decoration: none;
+}
+
+.navbar__link.active {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

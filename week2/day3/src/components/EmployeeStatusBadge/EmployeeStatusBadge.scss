@@ -1,0 +1,39 @@
+.employee-status {
+  align-items: center;
+  border: 1px solid transparent;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 5px;
+  line-height: 1;
+  padding: 4px 8px;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.employee-status::before {
+  border-radius: 50%;
+  content: '';
+  height: 7px;
+  width: 7px;
+}
+
+.employee-status--active {
+  background-color: #eef8f0;
+  border-color: #b8dfc1;
+  color: #26723a;
+}
+
+.employee-status--active::before {
+  background-color: #28a745;
+}
+
+.employee-status--inactive {
+  background-color: #fafafa;
+  border-color: #dddddd;
+  color: #666666;
+}
+
+.employee-status--inactive::before {
+  background-color: #999999;
+}

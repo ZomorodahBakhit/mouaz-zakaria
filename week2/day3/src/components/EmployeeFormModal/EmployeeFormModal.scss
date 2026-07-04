@@ -1,0 +1,32 @@
+.employee-form {
+  display: grid;
+  gap: 14px;
+}
+
+.employee-form__field {
+  color: #222222;
+  display: grid;
+  font-weight: bold;
+  gap: 6px;
+}
+
+.employee-form__field small {
+  color: red;
+  font-weight: normal;
+}
+
+.employee-form__field .ant-input-number {
+  width: 100%;
+}
+
+.employee-form__active-row {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.employee-form__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}

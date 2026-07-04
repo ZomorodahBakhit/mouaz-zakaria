@@ -1,0 +1,15 @@
+.employee-detail-page {
+  display: grid;
+  gap: 18px;
+}
+
+.employee-detail-page__actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .employee-detail-page__actions {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,42 @@
+.employee-card {
+  align-items: center;
+  border: 1px solid #cccccc;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto;
+  padding: 15px;
+}
+
+.employee-card__header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.employee-card h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.employee-card p {
+  color: #555555;
+  margin: 3px 0;
+}
+
+.employee-card__actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 700px) {
+  .employee-card {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-card__actions {
+    flex-wrap: wrap;
+  }
+}
